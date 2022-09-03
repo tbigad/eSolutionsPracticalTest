@@ -9,8 +9,8 @@
 import Foundation
 
 typealias Categories = [CategoryElement]
-struct CategoryElement:Decodable {
-    struct Image:Decodable {
+struct CategoryElement:Decodable, Hashable {
+    struct Image:Decodable,Hashable {
         let url, title: String
         let source: String
     }
@@ -23,4 +23,9 @@ struct CategoryElement:Decodable {
     let shortName, fullName, orderableCount, url, featured: String
     let popularity: String
     let images: [Image]?
+
+//MARK: Hashable
+    static func == (lhs: CategoryElement, rhs: CategoryElement) -> Bool {
+        return lhs.categoryID == rhs.categoryID
+    }
 }

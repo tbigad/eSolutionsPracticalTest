@@ -9,8 +9,12 @@ import Foundation
 
 final class CategoriesInteractor {
     var reloadData:()->() = {fatalError("should reimplement")}
-    private let dataSession:MainDataSession
-    init(dataSession:MainDataSession) {
-        self.dataSession = dataSession
+    private let dataManager: ShopApiManager
+    init(dataManager: ShopApiManager) {
+        self.dataManager = dataManager
+    }
+    
+    func getCategories(complition:@escaping (Result<Categories,Error>)->()) {
+        dataManager.getCategories(complition: complition)
     }
 }

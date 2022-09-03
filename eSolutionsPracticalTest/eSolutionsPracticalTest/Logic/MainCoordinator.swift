@@ -9,23 +9,22 @@ import Foundation
 import UIKit
 
 final class MainCoordinator {
-    private let dataSession:MainDataSession
     private var navigationController:UINavigationController
     var baseViewController:UIViewController {
         get {
             return navigationController
         }
     }
-    init(dataSession:MainDataSession) {
+    init() {
         self.navigationController = UINavigationController()
-        self.dataSession = dataSession
         showMainViewController()
     }
 }
 
 private extension MainCoordinator {
     func showMainViewController() {
-        let interactor = Assembly.makeCategoriesInteractor(dataSession: self.dataSession)
+        let apiManager = Assembly.makeShopApiManager(xApiKey: constants.xApiKey, baseUrl: constants.baseUrl)
+        let interactor = Assembly.makeCategoriesInteractor(dataManager: apiManager)
         guard let controller = Assembly.makeCategoriesViewController(interactor: interactor) else {return}
         navigationController.pushViewController(controller, animated: true)
     }

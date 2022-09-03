@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class Assembly {
+    private init() {
+        // All assemblies are static
+    }
     private static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     static func makeCategoriesViewController(interactor:CategoriesInteractor) -> CategoriesViewController? {
         let controller = storyboard.instantiateViewController(identifier: CategoriesViewController.describing()) { coder in
@@ -17,16 +20,15 @@ final class Assembly {
         return controller
     }
     
-    static func makeMainDataSession() -> MainDataSession {
-        return MainDataSession()
+    static func makeShopApiManager(xApiKey: String, baseUrl: URL) -> ShopApiManager {
+        return ShopApiManager(xApiKey: xApiKey, baseUrl: baseUrl)
     }
     
     static func makeMainCoordinator() -> MainCoordinator {
-        let dataSession = MainDataSession()
-        return MainCoordinator(dataSession: dataSession)
+        return MainCoordinator()
     }
     
-    static func makeCategoriesInteractor(dataSession: MainDataSession) -> CategoriesInteractor {
-        CategoriesInteractor(dataSession: dataSession)
+    static func makeCategoriesInteractor(dataManager: ShopApiManager) -> CategoriesInteractor {
+        CategoriesInteractor(dataManager: dataManager)
     }
 }
