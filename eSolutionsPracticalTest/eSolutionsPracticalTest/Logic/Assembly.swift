@@ -30,9 +30,13 @@ final class Assembly {
         CategoriesInteractor(dataManager: dataManager)
     }
     
-    static func makeListOfProductsViewController(list: ListOfProducts) -> ListOfProductsViewController {
+    static func makeListOfProductsInteractor(dataManager: ShopApiManager,parentCategory:CategoryElement) -> ListOfProductsInteractor {
+        ListOfProductsInteractor(dataManager: dataManager, parentCategory: parentCategory)
+    }
+    
+    static func makeListOfProductsViewController(list:ListOfProducts,interactor:ListOfProductsInteractor) -> ListOfProductsViewController {
         let controller = storyboard.instantiateViewController(identifier: ListOfProductsViewController.describing()) { coder in
-            return ListOfProductsViewController(coder: coder, data: list)
+            return ListOfProductsViewController(coder: coder, list: list,interactor: interactor)
         }
         return controller
     }

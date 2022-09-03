@@ -8,7 +8,7 @@
 import UIKit
 
 final class CategoriesViewController: UIViewController {
-    var showListOfProducts:(ListOfProducts)->() = {_ in fatalError("should implement")}
+    var showListOfProducts:(_ list:ListOfProducts,_ category:CategoryElement)->Void = {_,_ in fatalError("should implement")}
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var collectionView: UICollectionView!
     private var viewModel = Categories()
@@ -51,7 +51,7 @@ extension CategoriesViewController : UICollectionViewDelegate {
                 self?.activityIndicator.startAnimating()
             }
             result.on { list in
-                self?.showListOfProducts(list.gridProducts.elements)
+                self?.showListOfProducts(list.gridProducts.elements, item)
             } failure: { error in
                 print(error)
             }

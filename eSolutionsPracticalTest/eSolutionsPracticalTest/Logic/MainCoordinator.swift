@@ -27,15 +27,17 @@ private extension MainCoordinator {
         let interactor = Assembly.makeCategoriesInteractor(dataManager: apiManager)
         guard let controller = Assembly.makeCategoriesViewController(interactor: interactor) else {return}
         navigationController.pushViewController(controller, animated: true)
-        controller.showListOfProducts = { [weak self] list in
+        controller.showListOfProducts = { [weak self] list,category in
             DispatchQueue.main.async {
-                self?.showListOfProducts(list: list)
+                self?.showListOfProducts(list: list,category: category)
             }
         }
     }
     
-    func showListOfProducts(list:ListOfProducts) {
-        let controller = Assembly.makeListOfProductsViewController(list: list)
+    func showListOfProducts(list:ListOfProducts, category: CategoryElement) {
+        let apiManager = Assembly.makeShopApiManager(xApiKey: constants.xApiKey, baseUrl: constants.baseUrl)
+        let interactor = Assembly.makeListOfProductsInteractor(dataManager: apiManager, parentCategory: category)
+        let controller = Assembly.makeListOfProductsViewController(list: list, interactor: interactor)
         navigationController.pushViewController(controller, animated: true)
     }
 }

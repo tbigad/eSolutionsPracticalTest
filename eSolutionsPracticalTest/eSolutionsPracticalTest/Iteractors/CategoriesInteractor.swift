@@ -8,7 +8,6 @@
 import Foundation
 
 final class CategoriesInteractor {
-    var reloadData:()->() = {fatalError("should reimplement")}
     private let dataManager: ShopApiManager
     init(dataManager: ShopApiManager) {
         self.dataManager = dataManager

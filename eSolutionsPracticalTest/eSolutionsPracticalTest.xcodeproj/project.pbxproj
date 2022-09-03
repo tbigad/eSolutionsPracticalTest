@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3A0FE3828C3EACF00DCDD2A /* ProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0FE3728C3EACF00DCDD2A /* ProductInfoViewController.swift */; };
+		F3A0FE3A28C3FBCC00DCDD2A /* ListOfProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0FE3928C3FBCC00DCDD2A /* ListOfProductsInteractor.swift */; };
 		F3C06F5628C24D60000B2C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C06F5528C24D60000B2C14 /* AppDelegate.swift */; };
 		F3C06F5828C24D60000B2C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C06F5728C24D60000B2C14 /* SceneDelegate.swift */; };
 		F3C06F5F28C24D61000B2C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C06F5E28C24D61000B2C14 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3A0FE3728C3EACF00DCDD2A /* ProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewController.swift; sourceTree = "<group>"; };
+		F3A0FE3928C3FBCC00DCDD2A /* ListOfProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsInteractor.swift; sourceTree = "<group>"; };
 		F3C06F5228C24D60000B2C14 /* eSolutionsPracticalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eSolutionsPracticalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C06F5528C24D60000B2C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C06F5728C24D60000B2C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,10 +86,10 @@
 		F3C06F5428C24D60000B2C14 /* eSolutionsPracticalTest */ = {
 			isa = PBXGroup;
 			children = (
-				F3E4B8A628C3432B003185A3 /* DataManager */,
 				F3C06F7128C26C5A000B2C14 /* Cells */,
 				F3C06F6A28C24F58000B2C14 /* Common */,
 				F3C06F6D28C26BA6000B2C14 /* Controllers */,
+				F3E4B8A628C3432B003185A3 /* DataManager */,
 				F3C06F7A28C32CFB000B2C14 /* Extension */,
 				F3C06F6E28C26BB1000B2C14 /* Items */,
 				F3C06F6F28C26BF8000B2C14 /* Iteractors */,
@@ -121,6 +125,7 @@
 			children = (
 				F3C06F7828C32CD1000B2C14 /* CategoriesViewController.swift */,
 				F3E4B8A928C361A1003185A3 /* ListOfProductsViewController.swift */,
+				F3A0FE3728C3EACF00DCDD2A /* ProductInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E4B8A028C33821003185A3 /* CategoriesInteractor.swift */,
+				F3A0FE3928C3FBCC00DCDD2A /* ListOfProductsInteractor.swift */,
 			);
 			path = Iteractors;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				F3E4B8AC28C3B3A4003185A3 /* UIImageView.swift in Sources */,
 				F3C06F7528C2845C000B2C14 /* ShopApiManager.swift in Sources */,
 				F3E4B8B028C3DC12003185A3 /* ListOfItemCollectionViewCell.swift in Sources */,
+				F3A0FE3828C3EACF00DCDD2A /* ProductInfoViewController.swift in Sources */,
 				F3C06F7928C32CD1000B2C14 /* CategoriesViewController.swift in Sources */,
 				F3E4B8A128C33821003185A3 /* CategoriesInteractor.swift in Sources */,
 				F3E4B8A528C33FDA003185A3 /* Result.swift in Sources */,
@@ -261,6 +268,7 @@
 				F3E4B8A828C34799003185A3 /* CategoriesCollectionViewCell.swift in Sources */,
 				F3C06F7C28C32D46000B2C14 /* NSObject.swift in Sources */,
 				F3C06F5628C24D60000B2C14 /* AppDelegate.swift in Sources */,
+				F3A0FE3A28C3FBCC00DCDD2A /* ListOfProductsInteractor.swift in Sources */,
 				F3E4B8AA28C361A1003185A3 /* ListOfProductsViewController.swift in Sources */,
 				F3C06F5828C24D60000B2C14 /* SceneDelegate.swift in Sources */,
 				F3C06F7328C26FA4000B2C14 /* Category.swift in Sources */,

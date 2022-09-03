@@ -10,10 +10,13 @@ import UIKit
 final class ListOfProductsViewController: UIViewController {
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    private var numberOfPage:Int = 0
     private var viewModel:ListOfProducts
+    private let interactor:ListOfProductsInteractor
     
-    required init?(coder: NSCoder,data:ListOfProducts) {
-        self.viewModel = data
+    required init?(coder: NSCoder,list:ListOfProducts,interactor:ListOfProductsInteractor) {
+        self.viewModel = list
+        self.interactor = interactor
         super.init(coder: coder)
     }
     
@@ -44,7 +47,29 @@ private extension ListOfProductsViewController {
         return layout
     }
 }
-extension ListOfProductsViewController : UICollectionViewDelegate {}
+extension ListOfProductsViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            if indexPath.row == viewModel.count - 1 {  //numberofitem count
+                numberOfPage += 1
+                self.activityIndicator.startAnimating()
+                interactor.getProducts(page: numberOfPage) {[weak self] result in
+                    DispatchQueue.main.async {
+                        self?.activityIndicator.stopAnimating()
+                    }
+                    result.on { list in
+                        self?.viewModel.append(contentsOf: list.gridProducts.elements)
+                        DispatchQueue.main.async {
+                            self?.collectionView.reloadData()
+                        }
+                    } failure: { error in
+                        print(error)
+                    }
+
+                }
+            }
+    }
+}
+
 extension ListOfProductsViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
