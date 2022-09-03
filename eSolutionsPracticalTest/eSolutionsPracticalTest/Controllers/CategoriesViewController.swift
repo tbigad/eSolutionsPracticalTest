@@ -8,6 +8,7 @@
 import UIKit
 
 final class CategoriesViewController: UIViewController {
+    var showListOfProducts:(ListOfProducts)->() = {_ in fatalError("should implement")}
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var collectionView: UICollectionView!
     private var viewModel = Categories()
@@ -28,6 +29,7 @@ final class CategoriesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 8, left: .zero, bottom: view.safeAreaInsets.bottom, right: .zero)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +39,26 @@ final class CategoriesViewController: UIViewController {
     
 }
 
-extension CategoriesViewController : UICollectionViewDelegate {}
+extension CategoriesViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        defer {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
+        activityIndicator.startAnimating()
+        let item = viewModel[indexPath.item]
+        interactor.getProducts(categoryElement: item) {[weak self] result in
+            DispatchQueue.main.async {
+                self?.activityIndicator.startAnimating()
+            }
+            result.on { list in
+                self?.showListOfProducts(list.gridProducts.elements)
+            } failure: { error in
+                print(error)
+            }
+
+        }
+    }
+}
 extension CategoriesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count

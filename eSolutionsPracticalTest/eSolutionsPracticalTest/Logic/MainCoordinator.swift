@@ -27,5 +27,15 @@ private extension MainCoordinator {
         let interactor = Assembly.makeCategoriesInteractor(dataManager: apiManager)
         guard let controller = Assembly.makeCategoriesViewController(interactor: interactor) else {return}
         navigationController.pushViewController(controller, animated: true)
+        controller.showListOfProducts = { [weak self] list in
+            DispatchQueue.main.async {
+                self?.showListOfProducts(list: list)
+            }
+        }
+    }
+    
+    func showListOfProducts(list:ListOfProducts) {
+        let controller = Assembly.makeListOfProductsViewController(list: list)
+        navigationController.pushViewController(controller, animated: true)
     }
 }

@@ -23,6 +23,9 @@
 		F3E4B8A528C33FDA003185A3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8A428C33FDA003185A3 /* Result.swift */; };
 		F3E4B8A828C34799003185A3 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8A728C34799003185A3 /* CategoriesCollectionViewCell.swift */; };
 		F3E4B8AA28C361A1003185A3 /* ListOfProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8A928C361A1003185A3 /* ListOfProductsViewController.swift */; };
+		F3E4B8AC28C3B3A4003185A3 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8AB28C3B3A4003185A3 /* UIImageView.swift */; };
+		F3E4B8AE28C3BBD1003185A3 /* ListOfProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8AD28C3BBD1003185A3 /* ListOfProducts.swift */; };
+		F3E4B8B028C3DC12003185A3 /* ListOfItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4B8AF28C3DC12003185A3 /* ListOfItemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		F3E4B8A428C33FDA003185A3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F3E4B8A728C34799003185A3 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3E4B8A928C361A1003185A3 /* ListOfProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProductsViewController.swift; sourceTree = "<group>"; };
+		F3E4B8AB28C3B3A4003185A3 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F3E4B8AD28C3BBD1003185A3 /* ListOfProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfProducts.swift; sourceTree = "<group>"; };
+		F3E4B8AF28C3DC12003185A3 /* ListOfItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfItemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C06F7228C26FA4000B2C14 /* Category.swift */,
+				F3E4B8AD28C3BBD1003185A3 /* ListOfProducts.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E4B8A728C34799003185A3 /* CategoriesCollectionViewCell.swift */,
+				F3E4B8AF28C3DC12003185A3 /* ListOfItemCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			children = (
 				F3C06F7B28C32D46000B2C14 /* NSObject.swift */,
 				F3E4B8A428C33FDA003185A3 /* Result.swift */,
+				F3E4B8AB28C3B3A4003185A3 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -242,10 +251,13 @@
 			files = (
 				F3C06F7728C284FF000B2C14 /* Constants.swift in Sources */,
 				F3C06F7E28C32D61000B2C14 /* Assembly.swift in Sources */,
+				F3E4B8AC28C3B3A4003185A3 /* UIImageView.swift in Sources */,
 				F3C06F7528C2845C000B2C14 /* ShopApiManager.swift in Sources */,
+				F3E4B8B028C3DC12003185A3 /* ListOfItemCollectionViewCell.swift in Sources */,
 				F3C06F7928C32CD1000B2C14 /* CategoriesViewController.swift in Sources */,
 				F3E4B8A128C33821003185A3 /* CategoriesInteractor.swift in Sources */,
 				F3E4B8A528C33FDA003185A3 /* Result.swift in Sources */,
+				F3E4B8AE28C3BBD1003185A3 /* ListOfProducts.swift in Sources */,
 				F3E4B8A828C34799003185A3 /* CategoriesCollectionViewCell.swift in Sources */,
 				F3C06F7C28C32D46000B2C14 /* NSObject.swift in Sources */,
 				F3C06F5628C24D60000B2C14 /* AppDelegate.swift in Sources */,

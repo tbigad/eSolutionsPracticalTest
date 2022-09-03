@@ -22,4 +22,10 @@ struct Constants {
             return "api/0.2/categories"
         }
     }
+    
+    var listOfProductsPath:String {
+        get {
+            return "iv-api/0.3/catalog"
+        }
+    }
 }
