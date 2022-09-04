@@ -31,6 +31,7 @@ final class ProductInfoViewController: UIViewController {
         titleLabel.text = productInfo.title
         webView.loadHTMLString(productInfo.description, baseURL: nil)
         webView.scrollView.isScrollEnabled = false
+        webView.navigationDelegate = self
         let urlString = "http://images1.opticsplanet.com/365-240-ffffff/\(productInfo.image).jpg"
         if let url = URL(string: urlString) {
             imageView.load(url: url, placeholder: UIImage(named: "placeholder"))
@@ -44,5 +45,17 @@ final class ProductInfoViewController: UIViewController {
 @objc extension ProductInfoViewController {
     func didTapGoToHome() {
         self.backToCategories()
+    }
+}
+
+
+extension ProductInfoViewController :WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+      webView.evaluateJavaScript("document.readyState", completionHandler: { [weak self] (complete, error) in
+        if complete != nil {
+            let height = webView.scrollView.contentSize.height
+            self?.webViewHeghtConstraint.constant = height
+        }
+      })
     }
 }
