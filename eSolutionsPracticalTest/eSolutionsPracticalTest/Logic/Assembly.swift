@@ -40,4 +40,11 @@ final class Assembly {
         }
         return controller
     }
+    
+    static func makeProductInfoViewController(productInfo: ProductItem) -> ProductInfoViewController {
+        let controller = storyboard.instantiateViewController(identifier: ProductInfoViewController.describing()) { coder in
+            ProductInfoViewController(coder: coder, productInfo: productInfo)
+        }
+        return controller
+    }
 }

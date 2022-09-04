@@ -114,20 +114,114 @@
             </objects>
             <point key="canvasLocation" x="734.78260869565224" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Info View Controller-->
         <scene sceneID="QIr-vZ-E0x">
             <objects>
-                <viewController id="Dhv-o1-tud" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductInfoViewController" id="Dhv-o1-tud" customClass="ProductInfoViewController" customModule="eSolutionsPracticalTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WwR-eI-n8S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHB-gA-ium">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-g3-mZk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cip-C3-5WA">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="283.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cip-C3-5WA" secondAttribute="height" multiplier="73:50" id="4vM-rh-4Ug"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMR-20-q5L">
+                                                <rect key="frame" x="0.0" y="283.5" width="414" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-NF-FGt">
+                                                        <rect key="frame" x="360" y="11.5" width="46" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-IZ-Klp">
+                                                        <rect key="frame" x="16" y="8" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="e3b-IZ-Klp" firstAttribute="leading" secondItem="mMR-20-q5L" secondAttribute="leading" constant="16" id="HdM-cG-JHP"/>
+                                                    <constraint firstItem="e3b-IZ-Klp" firstAttribute="top" secondItem="mMR-20-q5L" secondAttribute="top" constant="8" id="Lzb-hr-n2A"/>
+                                                    <constraint firstAttribute="bottom" secondItem="e3b-IZ-Klp" secondAttribute="bottom" constant="8" id="bRK-gX-qk8"/>
+                                                    <constraint firstItem="mUC-NF-FGt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e3b-IZ-Klp" secondAttribute="trailing" constant="8" id="eEO-8u-I20"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mUC-NF-FGt" secondAttribute="trailing" constant="8" id="lJu-OD-UGy"/>
+                                                    <constraint firstItem="mUC-NF-FGt" firstAttribute="centerY" secondItem="mMR-20-q5L" secondAttribute="centerY" id="mcM-Ti-Oh0"/>
+                                                </constraints>
+                                            </view>
+                                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYh-Aj-oII">
+                                                <rect key="frame" x="16" y="337.5" width="382" height="558.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="250" constant="558.5" id="vyo-Z3-vvJ"/>
+                                                </constraints>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="mMR-20-q5L" firstAttribute="top" secondItem="cip-C3-5WA" secondAttribute="bottom" id="Fhw-kU-zVu"/>
+                                            <constraint firstItem="aYh-Aj-oII" firstAttribute="leading" secondItem="DB3-g3-mZk" secondAttribute="leading" constant="16" id="Fiq-gS-CX5"/>
+                                            <constraint firstAttribute="trailing" secondItem="cip-C3-5WA" secondAttribute="trailing" id="IgC-Jl-UNq"/>
+                                            <constraint firstItem="mMR-20-q5L" firstAttribute="leading" secondItem="DB3-g3-mZk" secondAttribute="leading" id="JQU-W1-z8l"/>
+                                            <constraint firstItem="cip-C3-5WA" firstAttribute="top" secondItem="DB3-g3-mZk" secondAttribute="top" id="Tkx-Y2-yCe"/>
+                                            <constraint firstItem="aYh-Aj-oII" firstAttribute="top" secondItem="mMR-20-q5L" secondAttribute="bottom" constant="8" id="eDR-q4-PR9"/>
+                                            <constraint firstAttribute="trailing" secondItem="mMR-20-q5L" secondAttribute="trailing" id="hmB-hb-a4H"/>
+                                            <constraint firstAttribute="trailing" secondItem="aYh-Aj-oII" secondAttribute="trailing" constant="16" id="nfc-i5-etD"/>
+                                            <constraint firstItem="cip-C3-5WA" firstAttribute="leading" secondItem="DB3-g3-mZk" secondAttribute="leading" id="oNC-I5-KJq"/>
+                                            <constraint firstAttribute="bottom" secondItem="aYh-Aj-oII" secondAttribute="bottom" id="rrd-Zz-deo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="width" secondItem="uLx-V1-g7G" secondAttribute="width" id="2RT-bs-ydr"/>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="top" secondItem="NTk-Bl-Sf7" secondAttribute="top" id="Bdc-jV-vQf"/>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="leading" secondItem="NTk-Bl-Sf7" secondAttribute="leading" id="KHm-r7-Joo"/>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="bottom" secondItem="NTk-Bl-Sf7" secondAttribute="bottom" id="iiG-Gg-Gf7"/>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="trailing" secondItem="NTk-Bl-Sf7" secondAttribute="trailing" id="mMa-AB-tl2"/>
+                                    <constraint firstItem="DB3-g3-mZk" firstAttribute="height" secondItem="uLx-V1-g7G" secondAttribute="height" priority="750" id="ubc-Xw-uNg"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="NTk-Bl-Sf7"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="uLx-V1-g7G"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YCU-h8-67o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="trailing" secondItem="YCU-h8-67o" secondAttribute="trailing" id="AXs-bW-XBY"/>
+                            <constraint firstAttribute="bottom" secondItem="dHB-gA-ium" secondAttribute="bottom" id="Dij-EP-v7T"/>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="leading" secondItem="YCU-h8-67o" secondAttribute="leading" id="ZGU-JZ-9k3"/>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="top" secondItem="WwR-eI-n8S" secondAttribute="top" id="dSt-g7-dRN"/>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="top" secondItem="WwR-eI-n8S" secondAttribute="top" id="isB-Bz-9cr"/>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="leading" secondItem="YCU-h8-67o" secondAttribute="leading" id="ouD-uZ-AlC"/>
+                            <constraint firstItem="dHB-gA-ium" firstAttribute="trailing" secondItem="YCU-h8-67o" secondAttribute="trailing" id="r4l-c3-gZp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="cip-C3-5WA" id="dFO-Xv-U6O"/>
+                        <outlet property="priceLabel" destination="mUC-NF-FGt" id="hJT-II-a2W"/>
+                        <outlet property="titleLabel" destination="e3b-IZ-Klp" id="iTr-3I-FRK"/>
+                        <outlet property="webView" destination="aYh-Aj-oII" id="Cv5-Tt-y2Z"/>
+                        <outlet property="webViewHeghtConstraint" destination="vyo-Z3-vvJ" id="pKX-Lc-9UY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGI-3d-1ih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="84"/>
+            <point key="canvasLocation" x="1500.0000000000002" y="83.705357142857139"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="s0d-6b-0kx">

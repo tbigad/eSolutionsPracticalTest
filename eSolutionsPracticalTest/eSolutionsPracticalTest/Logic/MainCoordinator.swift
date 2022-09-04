@@ -38,6 +38,19 @@ private extension MainCoordinator {
         let apiManager = Assembly.makeShopApiManager(xApiKey: constants.xApiKey, baseUrl: constants.baseUrl)
         let interactor = Assembly.makeListOfProductsInteractor(dataManager: apiManager, parentCategory: category)
         let controller = Assembly.makeListOfProductsViewController(list: list, interactor: interactor)
+        controller.showProductInfo = {[weak self] product in
+            DispatchQueue.main.async {
+                self?.showProductInfoViewController(item: product)
+            }
+        }
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func showProductInfoViewController(item:ProductItem) {
+        let controller = Assembly.makeProductInfoViewController(productInfo: item)
+        controller.backToCategories = { [weak self] in
+            self?.navigationController.popToRootViewController(animated: true)
+        }
         navigationController.pushViewController(controller, animated: true)
     }
 }

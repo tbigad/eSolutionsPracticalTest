@@ -8,6 +8,7 @@
 import UIKit
 
 final class ListOfProductsViewController: UIViewController {
+    var showProductInfo:(ProductItem) -> Void = {_ in fatalError("should implement")}
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var collectionView: UICollectionView!
     private var numberOfPage:Int = 0
@@ -31,6 +32,7 @@ final class ListOfProductsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 8, left: .zero, bottom: view.safeAreaInsets.bottom, right: .zero)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 private extension ListOfProductsViewController {
@@ -63,10 +65,29 @@ extension ListOfProductsViewController : UICollectionViewDelegate {
                         }
                     } failure: { error in
                         print(error)
+                        self?.numberOfPage -= 1
                     }
 
                 }
             }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        defer {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
+        let productUrl = viewModel[indexPath.item].url
+        activityIndicator.startAnimating()
+        interactor.getProductInfo(productUrl: productUrl) {[weak self] result in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+            }
+            result.on {item in
+                self?.showProductInfo(item)
+            } failure: { error in
+                print(error)
+            }
+        }
     }
 }
 

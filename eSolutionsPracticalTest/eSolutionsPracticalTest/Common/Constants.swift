@@ -28,4 +28,11 @@ struct Constants {
             return "iv-api/0.3/catalog"
         }
     }
+    
+    var productsPath:String {
+        get {
+            return "api/0.3/products"
+
+        }
+    }
 }

@@ -76,4 +76,30 @@ final class ShopApiManager {
             complition(.failure(NetworkHelperError.undefine))
         }.resume()
     }
+    
+    func getProductInfo(productIdentifier:String,complition:@escaping (Result<ProductItem,Error>)->()) {
+        let productsFullPath = String(format: "/%@/%@", constants.productsPath,productIdentifier)
+        guard let url = URL(string: productsFullPath, relativeTo: baseUrl) else {
+            complition(.failure(NetworkHelperError.undefine))
+            return
+        }
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.addValue(xApiKey, forHTTPHeaderField: "x-apikey")
+        session.dataTask(with: request) { data, responce, error in
+            if let error = error {
+                complition(.failure(error))
+                return
+            } else if let data = data {
+                do {
+                    let decodeData = try JSONDecoder().decode(ProductItem.self, from: data)
+                    complition(.success(decodeData))
+                } catch(let error) {
+                    complition(.failure(error))
+                }
+                return
+            }
+            complition(.failure(NetworkHelperError.undefine))
+        }.resume()
+    }
 }

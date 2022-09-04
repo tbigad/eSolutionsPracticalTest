@@ -15,7 +15,11 @@ final class ListOfProductsInteractor {
         self.dataManager = dataManager
     }
     
-    func getProducts(page:Int,complition:@escaping (Result<ListOfProductsOutput,Error>)->()) {
+    func getProducts(page:Int,complition:@escaping (Result<ListOfProductsOutput,Error>) -> Void) {
         dataManager.getListOfProducts(category: parentCategory.url, page: page, complition:complition)
+    }
+    
+    func getProductInfo(productUrl:String, complition:@escaping (Result<ProductItem,Error>) -> Void) {
+        dataManager.getProductInfo(productIdentifier: productUrl, complition: complition)
     }
 }
