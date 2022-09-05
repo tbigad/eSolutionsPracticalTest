@@ -1,10 +1,3 @@
-//
-//  NSObject.swift
-//  HeartRateMonitor
-//
-//  Created by Pavel Nadolski on 15.12.2021.
-//  Copyright © 2021 AIBY. All rights reserved.
-//
 
 import Foundation
 
